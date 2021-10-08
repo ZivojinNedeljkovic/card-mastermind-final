@@ -1,0 +1,27 @@
+.game__players-deck {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  height: $card-height;
+  width: 100%;
+  margin-bottom: 6px;
+  z-index: 200;
+}
+.game__players-deck__card-spot-stack {
+  margin: 0 multiplyCardWidth(0.025);
+  width: $card-width;
+  height: $card-height;
+  //border: 1px solid rgb(241, 6, 6);
+  position: relative;
+}
+
+@for $i from 0 through 8 {
+  .game__players-deck__card-spot-stack__card-spot--#{$i} {
+    width: $card-width;
+    height: $card-height;
+    position: absolute;
+    bottom: multiplyCardWidth($i, 0.09);
+    //border: 1px solid rgb(89, 3, 250);
+  }
+}

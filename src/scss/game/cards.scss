@@ -1,0 +1,82 @@
+.game__cards-container {
+  width: $card-width;
+  height: $card-height;
+  border: rgba(32, 19, 214, 0.52) solid 1px;
+  border-radius: 10%;
+  position: absolute;
+  top: 0;
+}
+
+%game__cards-container__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: $card-width;
+  height: $card-height;
+  border-radius: 10%;
+  font-size: multiplyCardWidth(0.28);
+  user-select: none;
+  //  position: fixed;
+  position: absolute;
+  //z-index: -1;
+}
+
+.game__cards-container__card--ocean {
+  @extend %game__cards-container__card;
+  background-color: #457b9d;
+  color: #a8dadc;
+  border: #a8dadc 2px solid;
+}
+.game__cards-container__card--orange {
+  @extend %game__cards-container__card;
+  background-color: #e76f51;
+  color: #f4a261;
+  border: #f4a261 2px solid;
+}
+.game__cards-container__card--vanilla {
+  @extend %game__cards-container__card;
+  background-color: #fed9b7;
+  color: #640a0a81;
+  border: #640a0a49 2px solid;
+}
+.game__cards-container__card--desire {
+  @extend %game__cards-container__card;
+  background: rgb(36, 12, 14);
+  background: linear-gradient(
+    115deg,
+    rgba(36, 12, 14, 1) 0%,
+    rgba(255, 0, 0, 1) 29%,
+    rgba(114, 91, 159, 1) 50%,
+    rgba(0, 105, 164, 1) 65%,
+    rgba(0, 105, 164, 1) 81%,
+    rgba(13, 11, 13, 1) 100%
+  );
+  background: linear-gradient(to right, #3a6186, #89253e);
+  color: white;
+  border: 1px solid white;
+}
+.game__cards-container__card--tulip {
+  @extend %game__cards-container__card;
+  background-color: #d67ab1;
+  color: #f1e4f3;
+  border: #f1e4f3 2px solid;
+}
+.game__cards-container__card--leaf {
+  @extend %game__cards-container__card;
+  background-color: #0b525b;
+  color: #b5e4eb;
+  border: #212f45 2px solid;
+}
+.game__cards-container__card--cloud {
+  @extend %game__cards-container__card;
+  background-color: #495867;
+  color: #ecc8af;
+  border: #ecc8af 2px solid;
+}
+.game__cards-container__card--love {
+  @extend %game__cards-container__card;
+  background: linear-gradient(to right, #3a6186, #89253e);
+  color: white;
+  border: 1px solid white;
+}

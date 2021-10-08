@@ -1,0 +1,23 @@
+$card-width: min(14.5vw, 8.4vh, 5rem);
+$card-stacking-factor: 2.3;
+
+@function multiplyCardWidth($factors...) {
+  $factorsProduct: 1;
+  @each $factor in $factors {
+    $factorsProduct: $factorsProduct * $factor;
+  }
+  @return calc(#{$card-width} * #{$factorsProduct});
+}
+
+$card-height: multiplyCardWidth(1.12);
+$max-cards-of-type: 8;
+
+.game {
+  position: relative;
+  background-color: #99d98c;
+  height: 100vh;
+}
+
+@import './table.scss';
+@import './cards.scss';
+@import './players_deck.scss';
