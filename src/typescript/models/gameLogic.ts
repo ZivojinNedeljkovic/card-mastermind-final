@@ -1,4 +1,5 @@
 import { MoveResult } from '../shardTypes'
+import { TableCardSpotModel } from './gameModelsTypes'
 
 /** Throws error if min is greater then max */
 function getRandomIntInclusive(min: number, max: number) {
@@ -80,4 +81,9 @@ export function examineCombination(
       winCombMarked
     ),
   }
+}
+
+export function getNumberOfCards(currentAttempt: TableCardSpotModel[]) {
+  return currentAttempt.filter(tableCardSpotModel => tableCardSpotModel.card)
+    .length
 }

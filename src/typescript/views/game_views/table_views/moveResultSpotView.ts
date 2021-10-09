@@ -18,6 +18,7 @@ export class MoveResultSpotView extends SpotView {
       tag: 'div',
       class: 'game__table__move-result-spot__all-cards-wrong-token',
       parentEl: this.element,
+      innerHTML: 'no hits',
     })
   }
 
@@ -45,12 +46,21 @@ export class MoveResultSpotView extends SpotView {
       this.renderAllCardsWrongToken()
       return
     }
-    
+
     for (let i = 0; i < moveResult.numOfRightCardsInRightPlaces; i++) {
       this.renderRightCardInRightPlaceToken()
     }
     for (let i = 0; i < moveResult.numOfRightCardsInWrongPlaces; i++) {
       this.renderRightCardInWrongPlaceToken()
     }
+  }
+
+  renderSubmitButton() {
+    ElementCreator.createElement({
+      tag: 'div',
+      class: 'game__table__move-result-spot__submit-btn',
+      parentEl: this.element,
+      innerHTML: '<p>submit<p>',
+    })
   }
 }

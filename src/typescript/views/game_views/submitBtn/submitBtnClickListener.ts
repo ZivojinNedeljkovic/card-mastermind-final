@@ -1,4 +1,4 @@
-import { ClickListener } from '../shared/clickListener'
+import { ClickListener } from '../../shared/clickListener'
 
 class SubmitBtnClickListener extends ClickListener<() => void> {
   protected onClicked(): void {

@@ -1,8 +1,9 @@
 import { ElementCreator } from '../../shared/elementCreator'
+import { View } from '../../shared/view'
 import { CardView } from '../cards/cardView'
-import { CardSpotView } from '../shared/cardSpotView'
+import { Spottable } from '../shared/gameViewInterfaces'
 
-export class PlayerDeckCardSpotView extends CardSpotView {
+export class PlayerDeckCardSpotView extends View implements Spottable{
   constructor(data: {
     parentEl: HTMLElement
     spotIndex: number
@@ -18,8 +19,25 @@ export class PlayerDeckCardSpotView extends CardSpotView {
     )
     this.placeCard(data.card, data.animationDuration)
   }
+  private _card?: CardView
 
+  get card() {
+    return this._card
+  }
+  get coordinates() {
+    return this.element.getBoundingClientRect()
+  }
+
+  protected set card(card: CardView | undefined) {
+    this._card = card
+  }
   removeCardSpotEl() {
     this.element.remove()
+  }
+  placeCard(card: CardView, animationDuration: number) {
+    if (this._card) return
+
+    card.move(this, animationDuration)
+    this._card = card
   }
 }

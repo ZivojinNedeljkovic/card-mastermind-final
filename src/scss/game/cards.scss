@@ -7,7 +7,7 @@
   top: 0;
 }
 
-%game__cards-container__card {
+.game__cards-container__card {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,31 +17,34 @@
   border-radius: 10%;
   font-size: multiplyCardWidth(0.28);
   user-select: none;
-  //  position: fixed;
   position: absolute;
-  //z-index: -1;
+  border-style: solid;
+  border-width: multiplyCardWidth(0.015);
 }
 
 .game__cards-container__card--ocean {
-  @extend %game__cards-container__card;
+  @extend .game__cards-container__card;
   background-color: #457b9d;
   color: #a8dadc;
-  border: #a8dadc 2px solid;
+  border-color: #a8dadc;
+  //border: #a8dadc 2px solid;
 }
 .game__cards-container__card--orange {
-  @extend %game__cards-container__card;
+  @extend .game__cards-container__card;
   background-color: #e76f51;
   color: #f4a261;
-  border: #f4a261 2px solid;
+  border-color: #f4a261;
+  //border: #f4a261 2px solid;
 }
 .game__cards-container__card--vanilla {
-  @extend %game__cards-container__card;
+  @extend .game__cards-container__card;
   background-color: #fed9b7;
-  color: #640a0a81;
-  border: #640a0a49 2px solid;
+  color: #640a0ac5;
+  border-color: #640a0a49;
+  //border: #640a0a49 2px solid;
 }
 .game__cards-container__card--desire {
-  @extend %game__cards-container__card;
+  @extend .game__cards-container__card;
   background: rgb(36, 12, 14);
   background: linear-gradient(
     115deg,
@@ -54,29 +57,33 @@
   );
   background: linear-gradient(to right, #3a6186, #89253e);
   color: white;
-  border: 1px solid white;
+  border-color: white;
+  //border: 1px solid white;
 }
 .game__cards-container__card--tulip {
-  @extend %game__cards-container__card;
+  @extend .game__cards-container__card;
   background-color: #d67ab1;
   color: #f1e4f3;
-  border: #f1e4f3 2px solid;
+  border-color: #f1e4f3;
+  //border: #f1e4f3 2px solid;
 }
 .game__cards-container__card--leaf {
-  @extend %game__cards-container__card;
+  @extend .game__cards-container__card;
   background-color: #0b525b;
   color: #b5e4eb;
-  border: #212f45 2px solid;
+  border-color: #212f45;
+  //border: #212f45 2px solid;
 }
 .game__cards-container__card--cloud {
-  @extend %game__cards-container__card;
+  @extend .game__cards-container__card;
   background-color: #495867;
   color: #ecc8af;
   border: #ecc8af 2px solid;
 }
 .game__cards-container__card--love {
-  @extend %game__cards-container__card;
+  @extend .game__cards-container__card;
   background: linear-gradient(to right, #3a6186, #89253e);
   color: white;
-  border: 1px solid white;
+  border-color: white;
+  //border: 1px solid white;
 }

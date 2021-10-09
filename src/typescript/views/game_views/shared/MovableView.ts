@@ -1,10 +1,9 @@
-import { Spottable } from '../game_views/shared/gameViewInterfaces'
-import { View } from './view'
+import { View } from '../../shared/view'
+import { Spottable } from './gameViewInterfaces'
 
 export abstract class MovableView extends View {
   private translateX = 0
   private translateY = 0
-
   private get coordinates(): { x: number; y: number } {
     return this.element.getBoundingClientRect()
   }

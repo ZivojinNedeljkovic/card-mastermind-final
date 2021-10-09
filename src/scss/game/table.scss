@@ -16,7 +16,7 @@
 .game__table__card-spot {
   width: $card-width;
   height: $card-height;
-  border: rgba(245, 245, 220, 0.685) solid 1px; //rgba(245, 245, 220, 0.52)
+  border: rgba(245, 245, 220, 0.596) solid multiplyCardWidth(0.01); //rgba(245, 245, 220, 0.52)
   border-radius: 10%;
   //z-index: 200;
 }
@@ -28,7 +28,10 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 5px;
-  // align-items: center;
+  // border: rgba(245, 245, 220, 0.685) solid 1px;
+
+  align-items: center;
+  align-items: center;
 }
 
 .token {
@@ -48,17 +51,15 @@
 }
 .game__table__move-result-spot__all-cards-wrong-token {
   @extend .token;
-  background: #3b3b38;
+  border: none;
 }
 
-// .game__table__game-solution {
-//   display: flex;
-//   justify-content: center;
-//   margin-top: multiplyCardWidth(0.18);
-// }
-
-// .game__table__game-solution__solution-card-spot {
-//   @extend .game__table__card-spots__card-spot;
-//   border-color: rgba(255, 255, 0, 0.548);
-//   margin: multiplyCardWidth(0.054);
-// }
+.game__table__move-result-spot__submit-btn {
+  //border: rgba(245, 245, 220, 0.685) solid 2px;
+  border-radius: 18%;
+  height: fit-content;
+  //padding: 2.5%;
+  padding: 0 4.5%;
+  background-color: #6247aa;
+  color: #dec9e9;
+}

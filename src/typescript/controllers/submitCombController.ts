@@ -1,18 +1,33 @@
-import { CARDS_PER_TRY } from '../models/gameConfig'
+import { CARDS_PER_TRY, WINING_COMBINATION_LENGTH } from '../models/gameConfig'
 import { examineCombination } from '../models/gameLogic'
 import { gameState } from '../models/gameState'
 import tableView from '../views/game_views/table_views/tableView'
 
-export function submitCombinationController() {
-  const moveResult = examineCombination(
-    gameState.currentAttempt.map(el => el.card?.type ?? ''),
-    gameState.winningCombination ?? []
-  )
+function getCardsInCurrentAttempt() {
+  return gameState.currentAttempt
+    .filter(tableCardSpotModel => tableCardSpotModel.card)
+    .map(tableCardSpotModel => tableCardSpotModel.card!.type)
+}
 
-  tableView.renderMoveResult(gameState.attemptsMade++, moveResult)
+function getMoveResult(comb: string[]) {
+  return examineCombination(comb, gameState.winningCombination ?? [])
+}
 
+function updateStateToNewMove() {
+  gameState.attemptsMade++
   gameState.currentAttempt.forEach(cardSpot => {
     cardSpot.card = undefined
     cardSpot.cardSpotIndex += CARDS_PER_TRY
   })
+}
+
+export function submitCombinationController() {
+  const cardsInCurrAttempt = getCardsInCurrentAttempt()
+  if (cardsInCurrAttempt.length !== WINING_COMBINATION_LENGTH) return
+
+  const moveResult = getMoveResult(cardsInCurrAttempt)
+
+  tableView.renderMoveResult(gameState.attemptsMade, moveResult)
+
+  updateStateToNewMove()
 }

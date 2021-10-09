@@ -7,15 +7,8 @@ export class TableCardSpotView extends SpotView {
       ElementCreator.createElement({
         tag: 'div',
         class: 'game__table__card-spot',
-        dataSets: [{ key: 'spotIndex', value: spotIndex.toString() }],
         parentEl: parentEl,
       })
     )
   }
-
-  // withdrawCard() {
-  //   const card = this.card
-  //   this.card = undefined
-  //   return card
-  // }
 }

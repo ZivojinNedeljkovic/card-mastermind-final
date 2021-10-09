@@ -14,8 +14,6 @@ export function withdrawCardFromTableController(cardView: CardView) {
   if (!cardSpotModel) return
 
   cardSpotModel.card = undefined
-  console.log(cardSpotModel)
-  
 
   playersDeckView.addCard(cardView, 1000)
 }

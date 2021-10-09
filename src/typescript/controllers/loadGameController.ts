@@ -10,12 +10,12 @@ import playersDeckView from '../views/game_views/players_deck_views/playersDeckV
 import cardsContainerView from '../views/game_views/cards/cardsContainerView'
 import playersDeckClickListener from '../views/game_views/players_deck_views/playersDeckClickListener'
 import { addCardToTableController } from './addCardToTableController'
-import tableClickListener from '../views/game_views/table_views/tableClickListener'
 import { withdrawCardFromTableController } from './withdrawCardFromTableController'
-import submitBtnClickListener from '../views/game_views/submitBtnClickListener'
+import submitBtnClickListener from '../views/game_views/submitBtn/submitBtnClickListener'
 import { submitCombinationController } from './submitCombController'
 import { generateWiningCombination } from '../models/gameLogic'
 import cardContainerClickListener from '../views/game_views/cards/cardContainerClickListener'
+//import submitBtnView from '../views/game_views/submitBtn/submitBtnView'
 
 function createTable() {
   tableView.setNumberOfRows(CARDS_PER_TRY)
@@ -45,6 +45,10 @@ function initCurrMove() {
   }
 }
 
+function positionSubmitButton() {
+  tableView.moveResultSpot[0].renderSubmitButton()
+}
+
 export function loadGame() {
   gameState.winningCombination = generateWiningCombination(
     [...CARDS.keys()],
@@ -57,11 +61,12 @@ export function loadGame() {
   createTable()
   createPlayersDeck()
   addCards()
+  //positionSubmitButton()
 
   dealCards()
 
   playersDeckClickListener.handler = addCardToTableController
   cardContainerClickListener.handler = withdrawCardFromTableController
 
-  submitBtnClickListener.handler = submitCombinationController
+  //submitBtnClickListener.handler = submitCombinationController
 }

@@ -1,13 +1,16 @@
 import { MoveResult } from '../../../shardTypes'
+import { View } from '../../shared/view'
 import { CardView } from '../cards/cardView'
 import { MoveResultSpotView } from './moveResultSpotView'
 import { TableCardSpotView } from './tableCardSpotView'
 
-class TableView {
+class TableView extends View {
   private cardSpots: TableCardSpotView[] = []
-  private moveResultSpots: MoveResultSpotView[] = []
+  private _moveResultSpots: MoveResultSpotView[] = []
 
-  constructor(private element: HTMLElement) {}
+  get moveResultSpot(): readonly MoveResultSpotView[] {
+    return this._moveResultSpots
+  }
 
   setNumberOfRows(num: number) {
     this.element.style.setProperty('--cards-spots-per-row', num.toString())
@@ -17,15 +20,10 @@ class TableView {
     for (let i = 0; i < numberOfCardSpots; i++) {
       this.cardSpots.push(new TableCardSpotView(this.element, i))
       if ((i + 1) % cardsPerMove === 0) {
-        this.moveResultSpots.push(new MoveResultSpotView(this.element))
+        this._moveResultSpots.push(new MoveResultSpotView(this.element))
       }
     }
   }
-
-  // getCardSpot(cardSpotIndex: number) {
-  //   if (cardSpotIndex >= this.cardSpots.length) return
-  //   return this.cardSpots[cardSpotIndex]
-  // }
 
   addCard(data: {
     cardSpotIndex: number
@@ -39,7 +37,7 @@ class TableView {
   }
 
   renderMoveResult(moveResultSpotIndex: number, moveResult: MoveResult) {
-    this.moveResultSpots[moveResultSpotIndex]?.renderResult(moveResult)
+    this._moveResultSpots[moveResultSpotIndex]?.renderResult(moveResult)
   }
 }
 

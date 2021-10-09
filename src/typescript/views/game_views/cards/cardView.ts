@@ -1,11 +1,9 @@
 import { ElementCreator } from '../../shared/elementCreator'
+import { MovableView } from '../../shared/movableView'
 import { View } from '../../shared/view'
-import { Spottable } from '../shared/gameViewsInterfaces'
+import { Spottable } from '../shared/gameViewInterfaces'
 
-export class CardView extends View {
-  private translateX = 0
-  private translateY = 0
-
+export class CardView extends MovableView {
   constructor(
     parentEl: HTMLElement,
     readonly cardType: string,
@@ -20,21 +18,6 @@ export class CardView extends View {
         dataSets: [{ key: 'id', value: `${id}` }],
       })
     )
-  }
-
-  private get coordinates(): { x: number; y: number } {
-    return this.element.getBoundingClientRect()
-  }
-
-  move(cardSpot: Spottable, duration: number) {
-    const { x: thisX, y: thisY } = this.coordinates
-    const { x: cardSpotX, y: cardSpotY } = cardSpot.coordinates
-
-    this.translateX += cardSpotX - thisX
-    this.translateY += cardSpotY - thisY
-
-    this.element.style.transition = `transform ${duration}ms`
-    this.element.style.transform = `translate(${this.translateX}px, ${this.translateY}px)`
   }
 
   set zIndex(i: number) {
