@@ -1,4 +1,4 @@
-$card-width: min(14.5vw, 8.2vh);
+$card-width: min(14vw, 8.2vh);
 $card-stacking-factor: 2.3;
 
 @function multiplyCardWidth($factors...) {
