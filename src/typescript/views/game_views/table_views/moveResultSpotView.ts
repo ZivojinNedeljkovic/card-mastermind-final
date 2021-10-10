@@ -58,7 +58,7 @@ export class MoveResultSpotView extends SpotView {
   renderSubmitButton() {
     ElementCreator.createElement({
       tag: 'button',
-      //  class: 'game__table__move-result-spot__submit-btn',
+      class: 'game__table__move-result-spot__submit-btn',
       parentEl: this.element,
       innerHTML: 'submit',
     })

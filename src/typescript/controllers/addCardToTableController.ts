@@ -33,6 +33,6 @@ export function addCardToTableController(
     setTimeout(
       () =>
         tableView.moveResultSpot[gameState.attemptsMade].renderSubmitButton(),
-      1000
+      1200
     )
 }

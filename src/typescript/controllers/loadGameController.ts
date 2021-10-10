@@ -11,10 +11,11 @@ import cardsContainerView from '../views/game_views/cards/cardsContainerView'
 import playersDeckClickListener from '../views/game_views/players_deck_views/playersDeckClickListener'
 import { addCardToTableController } from './addCardToTableController'
 import { withdrawCardFromTableController } from './withdrawCardFromTableController'
-import submitBtnClickListener from '../views/game_views/submitBtn/submitBtnClickListener'
+
 import { submitCombinationController } from './submitCombController'
 import { generateWiningCombination } from '../models/gameLogic'
 import cardContainerClickListener from '../views/game_views/cards/cardContainerClickListener'
+import submitBtnClickListener from '../views/game_views/table_views/submitBtnClickListener'
 //import submitBtnView from '../views/game_views/submitBtn/submitBtnView'
 
 function createTable() {
@@ -68,5 +69,5 @@ export function loadGame() {
   playersDeckClickListener.handler = addCardToTableController
   cardContainerClickListener.handler = withdrawCardFromTableController
 
-  //submitBtnClickListener.handler = submitCombinationController
+  submitBtnClickListener.handler = submitCombinationController
 }
