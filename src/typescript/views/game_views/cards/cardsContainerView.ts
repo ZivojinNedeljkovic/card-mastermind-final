@@ -8,6 +8,16 @@ class CardsContainerView extends View {
     return this._cardViews
   }
 
+  constructor(element: HTMLElement) {
+    super(element)
+    window.addEventListener('resize', this.updateCardsPositions.bind(this))
+    //console.log(this._cardViews[0].updatePosition())
+  }
+
+  updateCardsPositions() {
+    this._cardViews.forEach(card => card.updatePosition())
+  }
+
   addCards(cards: ReadonlyMap<string, number>) {
     let id = 0
     cards.forEach((amount, cardType) => {

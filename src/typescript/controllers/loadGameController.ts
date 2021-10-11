@@ -50,6 +50,16 @@ function positionSubmitButton() {
   tableView.moveResultSpot[0].renderSubmitButton()
 }
 
+function cardsWontDealBugfix() {
+  let counter = 4
+  
+  const interval = setInterval(() => {
+    if (--counter === 0) clearInterval(interval)
+
+    cardsContainerView.cardViews.forEach(cardView => cardView.updatePosition())
+  }, 100)
+}
+
 export function loadGame() {
   gameState.winningCombination = generateWiningCombination(
     [...CARDS.keys()],
@@ -65,6 +75,7 @@ export function loadGame() {
   //positionSubmitButton()
 
   dealCards()
+  cardsWontDealBugfix()
 
   playersDeckClickListener.handler = addCardToTableController
   cardContainerClickListener.handler = withdrawCardFromTableController
