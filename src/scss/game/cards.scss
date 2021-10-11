@@ -1,7 +1,7 @@
 .game__cards-container {
   width: $card-width;
   height: $card-height;
-  border: rgba(32, 19, 214, 0.52) solid 1px;
+  //border: rgba(32, 19, 214, 0.52) solid 1px;
   border-radius: 10%;
   position: absolute;
   top: calc(#{$card-height} * -1);
@@ -20,6 +20,7 @@
   position: absolute;
   border-style: solid;
   border-width: multiplyCardWidth(0.015);
+  cursor: pointer;
 }
 
 .game__cards-container__card--ocean {
