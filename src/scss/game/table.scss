@@ -52,6 +52,7 @@
 .game__table__move-result-spot__all-cards-wrong-token {
   @extend .token;
   border: none;
+  font-size: multiplyCardWidth(0.22);
 }
 
 .game__table__move-result-spot__submit-btn {
@@ -63,4 +64,5 @@
   background-color: #6247aa;
   color: #dec9e9;
   cursor: pointer;
+  font-size:  multiplyCardWidth(0.22);
 }

@@ -30,6 +30,5 @@ export function submitCombinationController(submitBtnView: SubmitBtnView) {
   const moveResult = getMoveResult(cardsInCurrAttempt)
 
   tableView.renderMoveResult(gameState.attemptsMade, moveResult)
-
   updateStateToNewMove()
 }

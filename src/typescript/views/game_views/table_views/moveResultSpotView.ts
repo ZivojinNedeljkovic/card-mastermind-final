@@ -3,6 +3,7 @@ import { ElementCreator } from '../../shared/elementCreator'
 import { SpotView } from '../shared/spotView'
 
 export class MoveResultSpotView extends SpotView {
+  private submitBtn: HTMLElement
   constructor(parentEl: HTMLElement) {
     super(
       ElementCreator.createElement({
@@ -56,11 +57,15 @@ export class MoveResultSpotView extends SpotView {
   }
 
   renderSubmitButton() {
-    ElementCreator.createElement({
+    this.submitBtn = ElementCreator.createElement({
       tag: 'button',
       class: 'game__table__move-result-spot__submit-btn',
       parentEl: this.element,
       innerHTML: 'submit',
     })
+  }
+
+  removeSubmitBtn() {
+    this.submitBtn?.remove()
   }
 }
