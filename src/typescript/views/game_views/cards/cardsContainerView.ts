@@ -11,12 +11,13 @@ class CardsContainerView extends View {
   constructor(element: HTMLElement) {
     super(element)
     window.addEventListener('resize', this.updateCardsPositions.bind(this))
+    window.addEventListener('scroll', this.updateCardsPositions.bind(this))
     //console.log(this._cardViews[0].updatePosition())
   }
 
   updateCardsPositions() {
     this._cardViews.forEach(card => card.updatePosition())
-    
+
     let counter = 4
     const interval = setInterval(() => {
       if (--counter === 0) clearInterval(interval)
