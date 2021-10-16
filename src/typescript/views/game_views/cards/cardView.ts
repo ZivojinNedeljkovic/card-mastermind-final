@@ -9,6 +9,12 @@ export class CardView extends View {
   private x = 0
   private y = 0
 
+  private static cardsMovedCounter = 0
+
+  private static get movingCardZIndex() {
+    return 10000 + CardView.cardsMovedCounter
+  }
+
   set zIndex(i: number) {
     this.element.style.zIndex = i.toString()
   }
@@ -36,13 +42,9 @@ export class CardView extends View {
     this.y = y
   }
 
-  // private get coordinates(): { x: number; y: number } {
-  //   return this.element.getBoundingClientRect()
-  // }
-
   async move(cardSpot: Spottable, duration: number) {
     const zIndex = this.zIndex
-    this.zIndex = 10000
+    this.zIndex = CardView.movingCardZIndex
 
     //const { x: thisX, y: thisY } = this.coordinates
     const { x: cardSpotX, y: cardSpotY } = cardSpot.coordinates
