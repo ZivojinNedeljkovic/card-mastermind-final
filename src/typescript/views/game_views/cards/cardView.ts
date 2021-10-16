@@ -12,7 +12,7 @@ export class CardView extends View {
   private static cardsMovedCounter = 0
 
   private static get movingCardZIndex() {
-    return 10000 + CardView.cardsMovedCounter
+    return 10000 + CardView.cardsMovedCounter++
   }
 
   set zIndex(i: number) {
