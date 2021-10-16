@@ -25,15 +25,18 @@ class TableView extends View {
     }
   }
 
-  addCard(data: {
+  async addCard(data: {
     cardSpotIndex: number
     card: CardView
     animationDuration: number
   }) {
     if (data.cardSpotIndex >= this.cardSpots.length) return
-    data.card.zIndex = 100
+
+    
     const cardSpot = this.cardSpots[data.cardSpotIndex]
-    data.card.move(cardSpot, data.animationDuration)
+    
+   // data.card.zIndex = 100
+    await data.card.move(cardSpot, data.animationDuration)
   }
 
   renderMoveResult(moveResultSpotIndex: number, moveResult: MoveResult) {

@@ -1,4 +1,7 @@
-import { CARDS_PER_TRY } from '../models/gameConfig'
+import {
+  CARDS_PER_TRY,
+  MOVE_CARD_ANIMATION_DURATION,
+} from '../models/gameConfig'
 import { getNumberOfCards } from '../models/gameLogic'
 import { gameState } from '../models/gameState'
 import { PlayerDeckCardSpotStackView } from '../views/game_views/players_deck_views/playerDeckCardSpotStackView'
@@ -10,9 +13,7 @@ function getFreeCardSpotModel() {
   )
 }
 
-function renderSubmitBtn() {}
-
-export function addCardToTableController(
+export async function addCardToTableController(
   playerDeckCardSpotStack: PlayerDeckCardSpotStackView
 ) {
   const cardSpotModel = getFreeCardSpotModel()
@@ -23,16 +24,16 @@ export function addCardToTableController(
 
   cardSpotModel.card = { type: cardView.cardType, id: cardView.id }
 
-  tableView.addCard({
+  const isLastCardInMove =
+    getNumberOfCards(gameState.currentAttempt) === CARDS_PER_TRY
+
+  await tableView.addCard({
     card: cardView,
     cardSpotIndex: cardSpotModel.cardSpotIndex,
-    animationDuration: 1000,
+    animationDuration: MOVE_CARD_ANIMATION_DURATION,
   })
 
-  if (getNumberOfCards(gameState.currentAttempt) === CARDS_PER_TRY)
-    setTimeout(
-      () =>
-        tableView.moveResultSpot[gameState.attemptsMade].renderSubmitButton(),
-      1200
-    )
+  if (isLastCardInMove) {
+    tableView.moveResultSpot[gameState.attemptsMade].renderSubmitButton()
+  }
 }

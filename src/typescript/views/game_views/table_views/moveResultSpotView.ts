@@ -1,9 +1,11 @@
 import { MoveResult } from '../../../shardTypes'
 import { ElementCreator } from '../../shared/elementCreator'
 import { SpotView } from '../shared/spotView'
+import { SubmitBtnView } from './submitBtnView'
 
 export class MoveResultSpotView extends SpotView {
-  private submitBtn: HTMLElement
+  private submitBtn?: SubmitBtnView
+
   constructor(parentEl: HTMLElement) {
     super(
       ElementCreator.createElement({
@@ -57,15 +59,12 @@ export class MoveResultSpotView extends SpotView {
   }
 
   renderSubmitButton() {
-    this.submitBtn = ElementCreator.createElement({
-      tag: 'button',
-      class: 'game__table__move-result-spot__submit-btn',
-      parentEl: this.element,
-      innerHTML: 'submit',
-    })
+    if (this.submitBtn) return
+    this.submitBtn = new SubmitBtnView(this.element)
   }
 
   removeSubmitBtn() {
-    this.submitBtn?.remove()
+    this.submitBtn?.removeSubmitBtn()
+    this.submitBtn = undefined
   }
 }

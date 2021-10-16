@@ -9,3 +9,4 @@ export const CARDS: ReadonlyMap<string, number> = new Map([
   ['tulip', 5],
   ['leaf', 5],
 ])
+export const MOVE_CARD_ANIMATION_DURATION = 1000

@@ -3,7 +3,6 @@ import { getNumberOfCards } from '../models/gameLogic'
 import { gameState } from '../models/gameState'
 import { CardView } from '../views/game_views/cards/cardView'
 import playersDeckView from '../views/game_views/players_deck_views/playersDeckView'
-import { TableCardSpotView } from '../views/game_views/table_views/tableCardSpotView'
 import tableView from '../views/game_views/table_views/tableView'
 
 function getCardSpotModel(cardID: number) {
