@@ -6,6 +6,8 @@ export class CardView extends View {
   private translateX = 0
   private translateY = 0
   private cardSpot: Spottable
+  private x = 0
+  private y = 0
 
   set zIndex(i: number) {
     this.element.style.zIndex = i.toString()
@@ -29,21 +31,27 @@ export class CardView extends View {
         dataSets: [{ key: 'id', value: `${id}` }],
       })
     )
+    const { x, y } = this.element.getBoundingClientRect()
+    this.x = x
+    this.y = y
   }
 
-  private get coordinates(): { x: number; y: number } {
-    return this.element.getBoundingClientRect()
-  }
+  // private get coordinates(): { x: number; y: number } {
+  //   return this.element.getBoundingClientRect()
+  // }
 
   async move(cardSpot: Spottable, duration: number) {
     const zIndex = this.zIndex
     this.zIndex = 10000
 
-    const { x: thisX, y: thisY } = this.coordinates
+    //const { x: thisX, y: thisY } = this.coordinates
     const { x: cardSpotX, y: cardSpotY } = cardSpot.coordinates
 
-    this.translateX += cardSpotX - thisX
-    this.translateY += cardSpotY - thisY
+    this.translateX += cardSpotX - this.x
+    this.translateY += cardSpotY - this.y
+
+    this.x = cardSpotX
+    this.y = cardSpotY
 
     this.element.style.transition = `transform ${duration}ms`
     this.element.style.transform = `translate(${this.translateX}px, ${this.translateY}px)`

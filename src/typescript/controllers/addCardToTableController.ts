@@ -13,6 +13,9 @@ function getFreeCardSpotModel() {
   )
 }
 
+const isLastCardInMove = () =>
+  getNumberOfCards(gameState.currentAttempt) === CARDS_PER_TRY
+
 export async function addCardToTableController(
   playerDeckCardSpotStack: PlayerDeckCardSpotStackView
 ) {
@@ -24,16 +27,13 @@ export async function addCardToTableController(
 
   cardSpotModel.card = { type: cardView.cardType, id: cardView.id }
 
-  const isLastCardInMove =
-    getNumberOfCards(gameState.currentAttempt) === CARDS_PER_TRY
-
+  const cardWasLast = isLastCardInMove()
   await tableView.addCard({
     card: cardView,
     cardSpotIndex: cardSpotModel.cardSpotIndex,
     animationDuration: MOVE_CARD_ANIMATION_DURATION,
   })
 
-  if (isLastCardInMove) {
-    tableView.moveResultSpot[gameState.attemptsMade].renderSubmitButton()
-  }
+  if (!(cardWasLast && isLastCardInMove())) return
+  tableView.moveResultSpot[gameState.attemptsMade].renderSubmitButton()
 }
