@@ -20,7 +20,7 @@
   position: absolute;
   border-style: solid;
   border-width: multiplyCardWidth(0.015);
-  //cursor: pointer;
+  //cursor: pointer; - Causes cards to turn blue when clicked on mobile
 }
 
 .game__cards-container__card--ocean {

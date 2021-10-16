@@ -51,13 +51,13 @@ function positionSubmitButton() {
 }
 
 function cardsWontDealBugfix() {
-  let counter = 4
-  
+  let counter = 10
+
   const interval = setInterval(() => {
     if (--counter === 0) clearInterval(interval)
 
     cardsContainerView.cardViews.forEach(cardView => cardView.updatePosition())
-  }, 100)
+  }, 80)
 }
 
 export function loadGame() {
