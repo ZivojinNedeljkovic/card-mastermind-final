@@ -12,10 +12,6 @@ class CardsContainerView extends View {
     super(element)
     window.addEventListener('resize', this.updateCardsPositions.bind(this))
     window.addEventListener('scroll', this.updateCardsPositions.bind(this))
-    // document.body.addEventListener(
-    //   'click',
-    //   this.updateCardsPositions.bind(this, 5)
-    // )
   }
 
   updateCardsPositions() {
@@ -28,7 +24,6 @@ class CardsContainerView extends View {
   addCards(cards: ReadonlyMap<string, number>) {
     let id = 0
     cards.forEach((amount, cardType) => {
-      //for (let i = 0; i < amount; i++)
       while (amount-- > 0)
         this._cardViews.push(new CardView(this.element, cardType, id++))
     })

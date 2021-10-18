@@ -24,6 +24,7 @@ $max-cards-of-type: 8;
   position: relative;
   background-color: #99d98c;
   height: 100vh;
+  overflow-x: hidden;
 }
 
 @import './table.scss';

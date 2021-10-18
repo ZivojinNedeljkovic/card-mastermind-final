@@ -1,9 +1,10 @@
 .game__cards-container {
   width: $card-width;
   height: $card-height;
-  //border: rgba(32, 19, 214, 0.52) solid 1px;
+  border: rgba(32, 19, 214, 0.52) solid 1px;
   border-radius: 10%;
   position: relative;
+  left: 300%;
 }
 
 .game__cards-container__card {
