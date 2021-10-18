@@ -19,14 +19,9 @@ class CardsContainerView extends View {
   }
 
   updateCardsPositions() {
-    this._cardViews.forEach(card => card.updatePosition())
     setTimeout(
       () => this._cardViews.forEach(card => card.updatePosition()),
       200
-    )
-    setTimeout(
-      () => this._cardViews.forEach(card => card.updatePosition()),
-      1000
     )
   }
 
