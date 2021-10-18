@@ -16,13 +16,11 @@ class CardsContainerView extends View {
   }
 
   updateCardsPositions() {
-    this._cardViews.forEach(card => card.updatePosition())
-
-    let counter = 4
+    let counter = 0
     const interval = setInterval(() => {
-      if (--counter === 0) clearInterval(interval)
+      if (counter++ < 5) clearInterval(interval)
       this._cardViews.forEach(card => card.updatePosition())
-    }, 100)
+    }, counter * 100)
   }
 
   addCards(cards: ReadonlyMap<string, number>) {
