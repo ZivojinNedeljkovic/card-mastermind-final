@@ -10,17 +10,20 @@ class CardsContainerView extends View {
 
   constructor(element: HTMLElement) {
     super(element)
-    window.addEventListener('resize', this.updateCardsPositions.bind(this, 5))
-    window.addEventListener('scroll', this.updateCardsPositions.bind(this, 5))
-    //console.log(this._cardViews[0].updatePosition())
+    window.addEventListener('resize', this.updateCardsPositions.bind(this))
+    window.addEventListener('scroll', this.updateCardsPositions.bind(this))
+    // document.body.addEventListener(
+    //   'click',
+    //   this.updateCardsPositions.bind(this, 5)
+    // )
   }
 
-  updateCardsPositions(repeat: number) {
-    let counter = 0
-    const interval = setInterval(() => {
-      if (counter++ < repeat) clearInterval(interval)
-      this._cardViews.forEach(card => card.updatePosition())
-    }, counter * 100)
+  updateCardsPositions() {
+    this._cardViews.forEach(card => card.updatePosition())
+    // setTimeout(
+    //   () => this._cardViews.forEach(card => card.updatePosition()),
+    //   1000
+    // )
   }
 
   addCards(cards: ReadonlyMap<string, number>) {

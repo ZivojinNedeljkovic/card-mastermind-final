@@ -34,7 +34,7 @@ class TableView extends View {
 
     const cardSpot = this.cardSpots[data.cardSpotIndex]
 
-    await data.card.advanceMove({
+    await data.card.move({
       cardSpot: cardSpot,
       duration: data.animationDuration,
       aboveMovingCards: false,

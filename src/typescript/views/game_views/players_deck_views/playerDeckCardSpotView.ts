@@ -37,7 +37,7 @@ export class PlayerDeckCardSpotView extends View implements Spottable {
   placeCard(card: CardView, animationDuration: number) {
     if (this._card) return
 
-    card.advanceMove({
+    card.move({
       cardSpot: this,
       duration: animationDuration,
       aboveMovingCards: true,

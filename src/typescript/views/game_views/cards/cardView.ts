@@ -33,13 +33,21 @@ export class CardView extends View {
         dataSets: [{ key: 'id', value: `${id}` }],
       })
     )
+    this.setMyCoordinates()
+  }
+
+  private setMyCoordinates() {
     const { x, y } = this.element.getBoundingClientRect()
     this.x = x
     this.y = y
   }
 
-  move(cardSpot: Spottable, duration: number) {
-    const { x: cardSpotX, y: cardSpotY } = cardSpot.coordinates
+  async move(data: {
+    cardSpot: Spottable
+    duration: number
+    aboveMovingCards?: boolean
+  }) {
+    const { x: cardSpotX, y: cardSpotY } = data.cardSpot.coordinates
 
     this.translateX += cardSpotX - this.x
     this.translateY += cardSpotY - this.y
@@ -47,33 +55,25 @@ export class CardView extends View {
     this.x = cardSpotX
     this.y = cardSpotY
 
-    this.element.style.transition = `transform ${duration}ms`
+    this.element.style.transition = `transform ${data.duration}ms`
     this.element.style.transform = `translate(${this.translateX}px, ${this.translateY}px)`
 
-    this.cardSpot = cardSpot
-  }
+    this.cardSpot = data.cardSpot
 
-  async advanceMove(data: {
-    cardSpot: Spottable
-    duration: number
-    aboveMovingCards: boolean
-  }) {
+    if (data.aboveMovingCards === undefined) return
+
     const zIndex = this.zIndex
     this.zIndex = data.aboveMovingCards
       ? 1000 + CardView.cardsMovedCounter++
       : 1000 - CardView.cardsMovedCounter++
 
-    this.move(data.cardSpot, data.duration)
-
-    return new Promise(resolve =>
-      setTimeout(() => {
-        this.zIndex = zIndex
-        resolve('Move complete')
-      }, data.duration)
-    )
+    setTimeout(() => {
+      this.zIndex = zIndex
+    }, data.duration)
   }
 
   updatePosition() {
-    this.move(this.cardSpot, 0)
+    this.setMyCoordinates()
+    this.move({ cardSpot: this.cardSpot, duration: 0 })
   }
 }
