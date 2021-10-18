@@ -58,7 +58,7 @@ function cardsWontDealBugfix() {
 
   //   cardsContainerView.cardViews.forEach(cardView => cardView.updatePosition())
   // }, 100)
-  cardsContainerView.updateCardsPositions()
+  cardsContainerView.updateCardsPositions(7)
 }
 
 export function loadGame() {
