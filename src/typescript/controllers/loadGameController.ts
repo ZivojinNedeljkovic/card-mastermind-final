@@ -46,10 +46,6 @@ function initCurrMove() {
   }
 }
 
-function positionSubmitButton() {
-  tableView.moveResultSpot[0].renderSubmitButton()
-}
-
 function cardsWontDealBugfix() {
   cardsContainerView.updateCardsPositions()
 }
@@ -66,7 +62,6 @@ export function loadGame() {
   createTable()
   createPlayersDeck()
   addCards()
-  //positionSubmitButton()
 
   dealCards()
   cardsWontDealBugfix()
