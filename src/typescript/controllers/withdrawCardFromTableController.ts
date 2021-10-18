@@ -1,4 +1,7 @@
-import { CARDS_PER_TRY } from '../models/gameConfig'
+import {
+  CARDS_PER_TRY,
+  MOVE_CARD_ANIMATION_DURATION,
+} from '../models/gameConfig'
 import { getNumberOfCards } from '../models/gameLogic'
 import { gameState } from '../models/gameState'
 import { CardView } from '../views/game_views/cards/cardView'
@@ -20,5 +23,5 @@ export function withdrawCardFromTableController(cardView: CardView) {
 
   cardSpotModel.card = undefined
 
-  playersDeckView.addCard(cardView, 1000)
+  playersDeckView.addCard(cardView, MOVE_CARD_ANIMATION_DURATION)
 }

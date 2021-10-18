@@ -11,10 +11,6 @@ export class CardView extends View {
 
   private static cardsMovedCounter = 0
 
-  private static get movingCardZIndex() {
-    return 10000 + CardView.cardsMovedCounter++
-  }
-
   set zIndex(i: number) {
     this.element.style.zIndex = i.toString()
   }
@@ -42,11 +38,7 @@ export class CardView extends View {
     this.y = y
   }
 
-  async move(cardSpot: Spottable, duration: number) {
-    const zIndex = this.zIndex
-    this.zIndex = CardView.movingCardZIndex
-
-    //const { x: thisX, y: thisY } = this.coordinates
+  move(cardSpot: Spottable, duration: number) {
     const { x: cardSpotX, y: cardSpotY } = cardSpot.coordinates
 
     this.translateX += cardSpotX - this.x
@@ -59,12 +51,25 @@ export class CardView extends View {
     this.element.style.transform = `translate(${this.translateX}px, ${this.translateY}px)`
 
     this.cardSpot = cardSpot
+  }
+
+  async advanceMove(data: {
+    cardSpot: Spottable
+    duration: number
+    aboveMovingCards: boolean
+  }) {
+    const zIndex = this.zIndex
+    this.zIndex = data.aboveMovingCards
+      ? 1000 + CardView.cardsMovedCounter++
+      : 1000 - CardView.cardsMovedCounter++
+
+    this.move(data.cardSpot, data.duration)
 
     return new Promise(resolve =>
       setTimeout(() => {
         this.zIndex = zIndex
-        resolve('')
-      }, duration)
+        resolve('Move complete')
+      }, data.duration)
     )
   }
 

@@ -6,7 +6,7 @@
   height: $card-height;
   width: 100%;
   margin-bottom: 6px;
-  z-index: 200;
+  z-index: 10000;
 }
 .game__players-deck__card-spot-stack {
   margin: 0 multiplyCardWidth(0.025);
@@ -14,6 +14,7 @@
   height: $card-height;
   //border: 1px solid rgb(241, 6, 6);
   position: relative;
+  z-index: 10000;
 }
 
 @for $i from 0 through 18 {
@@ -24,5 +25,6 @@
     bottom: multiplyCardWidth($i, 0.09);
     //cursor: pointer;
     //border: 1px solid rgb(89, 3, 250);
+    z-index: 10000;
   }
 }

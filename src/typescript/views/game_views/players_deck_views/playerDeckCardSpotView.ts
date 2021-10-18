@@ -3,7 +3,7 @@ import { View } from '../../shared/view'
 import { CardView } from '../cards/cardView'
 import { Spottable } from '../shared/gameViewInterfaces'
 
-export class PlayerDeckCardSpotView extends View implements Spottable{
+export class PlayerDeckCardSpotView extends View implements Spottable {
   constructor(data: {
     parentEl: HTMLElement
     spotIndex: number
@@ -37,7 +37,11 @@ export class PlayerDeckCardSpotView extends View implements Spottable{
   placeCard(card: CardView, animationDuration: number) {
     if (this._card) return
 
-    card.move(this, animationDuration)
+    card.advanceMove({
+      cardSpot: this,
+      duration: animationDuration,
+      aboveMovingCards: true,
+    })
     this._card = card
   }
 }

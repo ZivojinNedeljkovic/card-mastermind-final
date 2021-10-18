@@ -32,11 +32,13 @@ class TableView extends View {
   }) {
     if (data.cardSpotIndex >= this.cardSpots.length) return
 
-    
     const cardSpot = this.cardSpots[data.cardSpotIndex]
-    
-   // data.card.zIndex = 100
-    await data.card.move(cardSpot, data.animationDuration)
+
+    await data.card.advanceMove({
+      cardSpot: cardSpot,
+      duration: data.animationDuration,
+      aboveMovingCards: false,
+    })
   }
 
   renderMoveResult(moveResultSpotIndex: number, moveResult: MoveResult) {
