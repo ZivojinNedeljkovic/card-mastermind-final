@@ -12,9 +12,17 @@ class CardsContainerView extends View {
     super(element)
     window.addEventListener('resize', this.updateCardsPositions.bind(this))
     window.addEventListener('scroll', this.updateCardsPositions.bind(this))
+    // document.body.addEventListener(
+    //   'click',
+    //   this.updateCardsPositions.bind(this)
+    // )
   }
 
   updateCardsPositions() {
+    setTimeout(
+      () => this._cardViews.forEach(card => card.updatePosition()),
+      100
+    )
     setTimeout(
       () => this._cardViews.forEach(card => card.updatePosition()),
       200

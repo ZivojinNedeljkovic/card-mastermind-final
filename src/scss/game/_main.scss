@@ -26,6 +26,17 @@ $max-cards-of-type: 8;
   height: 100vh;
   overflow-x: hidden;
 }
+.game__try-again-btn {
+  width: multiplyCardWidth(0.35);
+  height: multiplyCardWidth(0.35);
+  border-radius: 50%;
+  border: 1px solid rgba(37, 36, 36, 0.335);
+  align-self: center;
+  background-color: aqua;
+  position: absolute;
+  top: 2%;
+  left: 2%;
+}
 
 @import './table.scss';
 @import './cards.scss';

@@ -67,9 +67,12 @@ export class CardView extends View {
       ? 1000 + CardView.cardsMovedCounter++
       : 1000 - CardView.cardsMovedCounter++
 
-    setTimeout(() => {
-      this.zIndex = zIndex
-    }, data.duration)
+    return new Promise((resolve, _) =>
+      setTimeout(() => {
+        this.zIndex = zIndex
+        resolve('card moved')
+      }, data.duration)
+    )
   }
 
   updatePosition() {
