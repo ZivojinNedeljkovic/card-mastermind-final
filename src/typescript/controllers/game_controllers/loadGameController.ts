@@ -3,19 +3,24 @@ import {
   CARDS_PER_TRY,
   NUMBER_OF_TRIES,
   WINING_COMBINATION_LENGTH,
-} from '../models/gameConfig'
-import { gameState } from '../models/gameState'
-import tableView from '../views/game_views/table_views/tableView'
-import playersDeckView from '../views/game_views/players_deck_views/playersDeckView'
-import cardsContainerView from '../views/game_views/cards/cardsContainerView'
-import playersDeckClickListener from '../views/game_views/players_deck_views/playersDeckClickListener'
+} from '../../models/gameConfig'
+import { gameState } from '../../models/gameState'
+import tableView from '../../views/game_views/table_views/tableView'
+import playersDeckView from '../../views/game_views/players_deck_views/playersDeckView'
+import cardsContainerView from '../../views/game_views/cards/cardsContainerView'
+import playersDeckClickListener from '../../views/game_views/players_deck_views/playersDeckClickListener'
 import { addCardToTableController } from './addCardToTableController'
 import { withdrawCardFromTableController } from './withdrawCardFromTableController'
 
 import { submitCombinationController } from './submitCombController'
-import { generateWiningCombination } from '../models/gameLogic'
-import cardContainerClickListener from '../views/game_views/cards/cardContainerClickListener'
-import submitBtnClickListener from '../views/game_views/table_views/submitBtnClickListener'
+import { generateWiningCombination } from '../../models/gameLogic'
+import cardContainerClickListener from '../../views/game_views/cards/cardContainerClickListener'
+import submitBtnClickListener from '../../views/game_views/table_views/submitBtnClickListener'
+import menuOpenClickListener from '../../views/game_views/menu/menuOpenClickListener'
+import { openMenuController } from './openMenuController'
+import menuCloseClickListener from '../../views/game_views/menu/menuCloseClickListener'
+import { closeMenuController } from './closeMenuController'
+
 //import submitBtnView from '../views/game_views/submitBtn/submitBtnView'
 
 function createTable() {
@@ -68,6 +73,7 @@ export function loadGame() {
 
   playersDeckClickListener.handler = addCardToTableController
   cardContainerClickListener.handler = withdrawCardFromTableController
-
   submitBtnClickListener.handler = submitCombinationController
+  menuOpenClickListener.handler = openMenuController
+  menuCloseClickListener.handler = closeMenuController
 }

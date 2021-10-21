@@ -1,11 +1,11 @@
 import {
   CARDS_PER_TRY,
   MOVE_CARD_ANIMATION_DURATION,
-} from '../models/gameConfig'
-import { getNumberOfCards } from '../models/gameLogic'
-import { gameState } from '../models/gameState'
-import { PlayerDeckCardSpotStackView } from '../views/game_views/players_deck_views/playerDeckCardSpotStackView'
-import tableView from '../views/game_views/table_views/tableView'
+} from '../../models/gameConfig'
+import { getNumberOfCards } from '../../models/gameLogic'
+import { gameState } from '../../models/gameState'
+import { PlayerDeckCardSpotStackView } from '../../views/game_views/players_deck_views/playerDeckCardSpotStackView'
+import tableView from '../../views/game_views/table_views/tableView'
 
 function getFreeCardSpotModel() {
   return gameState.currentAttempt.find(

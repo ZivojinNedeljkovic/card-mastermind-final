@@ -1,8 +1,8 @@
-import { CARDS_PER_TRY, WINING_COMBINATION_LENGTH } from '../models/gameConfig'
-import { examineCombination } from '../models/gameLogic'
-import { gameState } from '../models/gameState'
-import { SubmitBtnView } from '../views/game_views/table_views/submitBtnView'
-import tableView from '../views/game_views/table_views/tableView'
+import { CARDS_PER_TRY, WINING_COMBINATION_LENGTH } from '../../models/gameConfig'
+import { examineCombination } from '../../models/gameLogic'
+import { gameState } from '../../models/gameState'
+import { SubmitBtnView } from '../../views/game_views/table_views/submitBtnView'
+import tableView from '../../views/game_views/table_views/tableView'
 
 function getCardsInCurrentAttempt() {
   return gameState.currentAttempt

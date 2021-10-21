@@ -39,7 +39,6 @@ class TableView extends View {
       duration: data.animationDuration,
       aboveMovingCards: false,
     })
-    console.log('not waiting')
   }
 
   renderMoveResult(moveResultSpotIndex: number, moveResult: MoveResult) {
