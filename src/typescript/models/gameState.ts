@@ -4,13 +4,13 @@ export type GameState = {
   winningCombination?: string[]
   attemptsMade: number
   gameOver: boolean
+  madeAttempts: TableCardSpotModel[][]
   currentAttempt: TableCardSpotModel[]
-  cardsInCurrentMove: number
 }
 
 export const gameState: GameState = {
   attemptsMade: 0,
   gameOver: false,
+  madeAttempts: [],
   currentAttempt: [],
-  cardsInCurrentMove: 0,
 }

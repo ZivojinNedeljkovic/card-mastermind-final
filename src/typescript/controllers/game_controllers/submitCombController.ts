@@ -1,4 +1,7 @@
-import { CARDS_PER_TRY, WINING_COMBINATION_LENGTH } from '../../models/gameConfig'
+import {
+  CARDS_PER_TRY,
+  WINING_COMBINATION_LENGTH,
+} from '../../models/gameConfig'
 import { examineCombination } from '../../models/gameLogic'
 import { gameState } from '../../models/gameState'
 import { SubmitBtnView } from '../../views/game_views/table_views/submitBtnView'
@@ -15,6 +18,9 @@ function getMoveResult(comb: string[]) {
 }
 
 function updateStateToNewMove() {
+  gameState.madeAttempts.push(
+    JSON.parse(JSON.stringify(gameState.currentAttempt))
+  )
   gameState.attemptsMade++
   gameState.currentAttempt.forEach(cardSpot => {
     cardSpot.card = undefined

@@ -67,4 +67,8 @@ export class MoveResultSpotView extends SpotView {
     this.submitBtn?.removeSubmitBtn()
     this.submitBtn = undefined
   }
+
+  removeAllTokens() {
+    this.element.innerHTML = ''
+  }
 }

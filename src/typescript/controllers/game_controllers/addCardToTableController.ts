@@ -27,16 +27,6 @@ export async function addCardToTableController(
 
   cardSpotModel.card = { type: cardView.cardType, id: cardView.id }
 
-  // const cardWasLast = isLastCardInMove()
-  // await tableView.addCard({
-  //   card: cardView,
-  //   cardSpotIndex: cardSpotModel.cardSpotIndex,
-  //   animationDuration: MOVE_CARD_ANIMATION_DURATION,
-  // })
-
-  // if (!(cardWasLast && isLastCardInMove())) return
-  // tableView.moveResultSpot[gameState.attemptsMade].renderSubmitButton()
-
   tableView.addCard({
     card: cardView,
     cardSpotIndex: cardSpotModel.cardSpotIndex,

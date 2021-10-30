@@ -16,12 +16,9 @@ import { submitCombinationController } from './submitCombController'
 import { generateWiningCombination } from '../../models/gameLogic'
 import cardContainerClickListener from '../../views/game_views/cards/cardContainerClickListener'
 import submitBtnClickListener from '../../views/game_views/table_views/submitBtnClickListener'
-import menuOpenClickListener from '../../views/game_views/menu/menuOpenClickListener'
-import { openMenuController } from './openMenuController'
-import menuCloseClickListener from '../../views/game_views/menu/menuCloseClickListener'
-import { closeMenuController } from './closeMenuController'
-
-//import submitBtnView from '../views/game_views/submitBtn/submitBtnView'
+import refreshIconClickListener from '../../views/game_views/icons/refreshIconClickListener'
+import { newGameController } from './newGameController'
+import { gameStateSetupController } from './gameStateSetupController'
 
 function createTable() {
   tableView.setNumberOfRows(CARDS_PER_TRY)
@@ -56,11 +53,7 @@ function cardsWontDealBugfix() {
 }
 
 export function loadGame() {
-  gameState.winningCombination = generateWiningCombination(
-    [...CARDS.keys()],
-    WINING_COMBINATION_LENGTH
-  )
-  console.log(gameState.winningCombination)
+  gameStateSetupController()
 
   initCurrMove()
 
@@ -74,6 +67,5 @@ export function loadGame() {
   playersDeckClickListener.handler = addCardToTableController
   cardContainerClickListener.handler = withdrawCardFromTableController
   submitBtnClickListener.handler = submitCombinationController
-  menuOpenClickListener.handler = openMenuController
-  menuCloseClickListener.handler = closeMenuController
+  refreshIconClickListener.handler = newGameController
 }
