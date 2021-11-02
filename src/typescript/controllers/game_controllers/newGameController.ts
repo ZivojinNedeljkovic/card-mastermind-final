@@ -1,9 +1,4 @@
-import {
-  CARDS,
-  MOVE_CARD_ANIMATION_DURATION,
-  WINING_COMBINATION_LENGTH,
-} from '../../models/gameConfig'
-import { generateWiningCombination } from '../../models/gameLogic'
+import { MOVE_CARD_ANIMATION_DURATION } from '../../models/gameConfig'
 import { gameState } from '../../models/gameState'
 import cardsContainerView from '../../views/game_views/cards/cardsContainerView'
 import playersDeckView from '../../views/game_views/players_deck_views/playersDeckView'
@@ -32,8 +27,6 @@ function removeMoveResults() {
   for (let i = 0; i < gameState.attemptsMade; i++) {
     tableView.moveResultSpot[i].removeAllTokens()
   }
-
-  //tableView.moveResultSpot[gameState.attemptsMade - 1].removeSubmitBtn()
 }
 
 function resetState() {
@@ -45,6 +38,7 @@ function resetState() {
 }
 
 export function newGameController() {
+  console.clear()
   returnCardsToPlayersDeck()
   removeMoveResults()
   resetState()

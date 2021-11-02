@@ -17,7 +17,8 @@ export function gameStateSetupController() {
     [...CARDS.keys()],
     WINING_COMBINATION_LENGTH
   )
-  console.log(gameState.winningCombination)
+
+  console.log('Wining combination: ', ...gameState.winningCombination)
 
   initCurrMove()
 }
