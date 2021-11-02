@@ -16,9 +16,11 @@ function getFreeCardSpotModel() {
 const isLastCardInMove = () =>
   getNumberOfCards(gameState.currentAttempt) === CARDS_PER_TRY
 
-export async function addCardToTableController(
+export function addCardToTableController(
   playerDeckCardSpotStack: PlayerDeckCardSpotStackView
 ) {
+  // if (gameState.gameOver) return
+
   const cardSpotModel = getFreeCardSpotModel()
   if (!cardSpotModel) return
 

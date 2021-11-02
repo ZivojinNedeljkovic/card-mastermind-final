@@ -1,5 +1,6 @@
 import {
   CARDS_PER_TRY,
+  NUMBER_OF_TRIES,
   WINING_COMBINATION_LENGTH,
 } from '../../models/gameConfig'
 import { examineCombination } from '../../models/gameLogic'
@@ -30,6 +31,7 @@ function updateStateToNewMove() {
 
 export function submitCombinationController(submitBtnView: SubmitBtnView) {
   submitBtnView.removeSubmitBtn()
+
   const cardsInCurrAttempt = getCardsInCurrentAttempt()
   if (cardsInCurrAttempt.length !== WINING_COMBINATION_LENGTH) return
 
@@ -37,4 +39,7 @@ export function submitCombinationController(submitBtnView: SubmitBtnView) {
 
   tableView.renderMoveResult(gameState.attemptsMade, moveResult)
   updateStateToNewMove()
+
+  if (moveResult.numOfRightCardsInRightPlaces === WINING_COMBINATION_LENGTH)
+    alert('Congratulation!')
 }

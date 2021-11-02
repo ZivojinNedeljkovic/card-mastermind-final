@@ -38,7 +38,6 @@ function resetState() {
 }
 
 export function newGameController() {
-  console.clear()
   returnCardsToPlayersDeck()
   removeMoveResults()
   resetState()
