@@ -32,6 +32,8 @@ function removeMoveResults() {
   for (let i = 0; i < gameState.attemptsMade; i++) {
     tableView.moveResultSpot[i].removeAllTokens()
   }
+
+  //tableView.moveResultSpot[gameState.attemptsMade - 1].removeSubmitBtn()
 }
 
 function resetState() {

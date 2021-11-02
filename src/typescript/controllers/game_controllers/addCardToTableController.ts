@@ -34,5 +34,6 @@ export async function addCardToTableController(
   })
 
   if (!isLastCardInMove()) return
+
   tableView.moveResultSpot[gameState.attemptsMade].renderSubmitButton()
 }

@@ -1,10 +1,4 @@
-import {
-  CARDS,
-  CARDS_PER_TRY,
-  NUMBER_OF_TRIES,
-  WINING_COMBINATION_LENGTH,
-} from '../../models/gameConfig'
-import { gameState } from '../../models/gameState'
+import { CARDS, CARDS_PER_TRY, NUMBER_OF_TRIES } from '../../models/gameConfig'
 import tableView from '../../views/game_views/table_views/tableView'
 import playersDeckView from '../../views/game_views/players_deck_views/playersDeckView'
 import cardsContainerView from '../../views/game_views/cards/cardsContainerView'
@@ -13,7 +7,6 @@ import { addCardToTableController } from './addCardToTableController'
 import { withdrawCardFromTableController } from './withdrawCardFromTableController'
 
 import { submitCombinationController } from './submitCombController'
-import { generateWiningCombination } from '../../models/gameLogic'
 import cardContainerClickListener from '../../views/game_views/cards/cardContainerClickListener'
 import submitBtnClickListener from '../../views/game_views/table_views/submitBtnClickListener'
 import refreshIconClickListener from '../../views/game_views/icons/refreshIconClickListener'
@@ -42,20 +35,12 @@ function dealCards() {
   )
 }
 
-function initCurrMove() {
-  for (let i = 0; i < CARDS_PER_TRY; i++) {
-    gameState.currentAttempt.push({ card: undefined, cardSpotIndex: i })
-  }
-}
-
 function cardsWontDealBugfix() {
   cardsContainerView.updateCardsPositions()
 }
 
 export function loadGame() {
   gameStateSetupController()
-
-  initCurrMove()
 
   createTable()
   createPlayersDeck()
